@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('transporte', function (Blueprint $table) {
             $table->id();
-            $table ->string('codigo', 75)->unique();
+            $table ->string('codigo', 10)->unique();
             $table ->string('nombre', 105);
             $table ->string('razon_social', 175);
-            $table ->dateTime('created_at', 15);
-            $table ->dateTime('updated', 15);
+            $table ->dateTime('created', 6);
+            $table ->dateTime('updated', 6);
             $table->timestamps();
         });
     }

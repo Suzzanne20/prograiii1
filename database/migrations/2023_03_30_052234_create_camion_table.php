@@ -12,18 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('camion', function (Blueprint $table) {
-            $table->id();
+            $table ->integer('id_placa')->primary();
             $table ->string('placa_camion', 6)->unique();
-            $table ->string('marca', 105);
-            $table ->string('color', 175);
-            $table ->date('modelo', 4);
+            $table ->string('marca', 105)->nullable();
+            $table ->string('color', 50)->nullable();
+            $table ->date('modelo', 4)->nullable();
             $table ->integer('capacidad_toneladas', 175);
 
-            $table ->bigInteger('codigo_transporte')->unsigned();
-            $table ->foreign('codigo_transporte')->references('id')->on('transporte');
+            $table ->foreignId('codigo_transporte')->references('id')->on('transporte');
 
-            $table ->dateTime('created_at', 15);
-            $table ->dateTime('updated', 15);
+            $table ->dateTime('created', 6);
+            $table ->dateTime('updated', 6);
             $table->timestamps();
         });
     }
